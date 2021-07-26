@@ -24,6 +24,8 @@
     "postcss": "^8.3.5",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
+    "ngx-openlayers": "0.8.22",
+    "openlayers": "^4.6.5",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

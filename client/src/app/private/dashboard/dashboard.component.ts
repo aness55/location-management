@@ -24,4 +24,7 @@ export class DashboardComponent implements OnInit {
     )
   }
 
+  onAddressChange(event) {
+    console.log('onAddressChange', event)
+  }
 }

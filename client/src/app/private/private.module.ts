@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PrivateRoutingModule } from './private-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MapModule } from '../shared/map/map.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   imports: [
     CommonModule,
-    PrivateRoutingModule
+    PrivateRoutingModule,
+    MapModule
   ]
 })
 export class PrivateModule { }

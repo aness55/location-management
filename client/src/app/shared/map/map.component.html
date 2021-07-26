@@ -1,0 +1,28 @@
+<aol-map [logo]="true" (onSingleClick)="onSingleClick($event)">
+	<aol-interaction-default></aol-interaction-default>
+	<aol-view [zoom]="zoom">
+		<aol-coordinate [x]="longitude" [y]="latitude" [srid]="'EPSG:4326'"></aol-coordinate>
+	</aol-view>
+	<aol-layer-tile [opacity]="opacity">
+		<aol-source-osm></aol-source-osm>
+	</aol-layer-tile>
+	<aol-layer-vector [opacity]="opacity">
+		<aol-source-vector>
+			<aol-feature>
+				<aol-geometry-point>
+					<aol-coordinate [x]="longitudePointer" [y]="latitudePointer" [srid]="'EPSG:4326'"></aol-coordinate>
+				</aol-geometry-point>
+			</aol-feature>
+			<aol-feature>
+				<aol-geometry-point>
+					<aol-coordinate [x]="longitudePointer" [y]="latitudePointer" [srid]="'EPSG:4326'"></aol-coordinate>
+				</aol-geometry-point>
+				<aol-style>
+					<aol-style-icon [src]="markerImage" [anchor]="[0.5, 1]" [anchorXUnits]="'fraction'" [anchorYUnits]="'fraction'" [scale]="0.1"
+					 [anchorOrigin]="'top-left'">
+					</aol-style-icon>
+				</aol-style>
+			</aol-feature>
+		</aol-source-vector>
+	</aol-layer-vector>
+</aol-map>
