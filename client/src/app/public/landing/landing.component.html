@@ -1,0 +1,19 @@
+<div class="w-full h-screen flex flex-col-reveresed flex-wrap">
+    <img src="../../../assets/landing-bg.jpg" alt="background" class="object-cover object-center md:h-screen md:w-7/12">
+    <div class="bg-white flex flex-col justify-center items-center md:w-5/12 shadow-lg">
+        <h1 class="text-3xl font-bold text-indigo-400  mb-2 text-center">LOCATION MANAGEMENT APPLICATION</h1>
+        <h6 class="text-center m-8">Welcome to the Location Management application. Place where
+            you can add, remove or modify your favourite locations and places of interest.</h6>
+        <h6 class="text-center m-8"> Please choose Login or Signup to begin your journey</h6>
+        <div class="w-2/3 text-center">
+            <button
+                class="bg-yellow-600 font-bold hover:bg-indigo-400  w-1/2 text-white my-4 px-3 py-4 rounded text-lg focus:outline-none shadow"
+                (click)="navigateTo('signup')">SIGNUP</button>
+        </div>
+        <div class="w-2/3 text-center">
+            <button
+                class="bg-yellow-600 font-bold hover:bg-indigo-400  w-1/2 text-white my-4 px-3 py-4 rounded text-lg focus:outline-none shadow"
+                (click)="navigateTo('login')">LOGIN</button>
+        </div>
+    </div>
+</div>

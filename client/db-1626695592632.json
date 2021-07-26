@@ -1,0 +1,51 @@
+{
+  "users": [
+    {
+      "email": "prentic@gmail.com",
+      "password": "$2a$10$g3LOqMNYpSpe1jOEc6zbXuXDaXwjIOoS6pRHfxFd1GU2YC5CgTFB2",
+      "id": 1
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Sarajevo National Theater",
+      "address": "Obala Kulina bana 9, Sarajevo 71000",
+      "city": "Sarajevo",
+      "latitude": 43.8572,
+      "longitude": 18.4207
+    },
+    {
+      "id": 2,
+      "name": "Eiffel Tower",
+      "address": "Champ de Mars, 5 Avenue Anatole France, 75007 Paris",
+      "city": "Paris",
+      "latitude": 48.8584,
+      "longitude": 2.2945
+    },
+    {
+      "id": 3,
+      "name": "Berlin Union Stadium",
+      "address": "An der Wuhlheide 263, 12555 Berlin",
+      "city": "Berlin",
+      "latitude": 52.4576,
+      "longitude": 13.5688
+    },
+    {
+      "id": 4,
+      "name": "Santiago Bernabeu Stadium",
+      "address": "Av. de Concha Espina, 1, 28036 Madrid",
+      "city": "Madrid",
+      "latitude": 13.5688,
+      "longitude": 3.7038
+    },
+    {
+      "id": 5,
+      "name": "Panonska jezera",
+      "address": "Shetalishte Slana Banja b.b., Tuzla",
+      "city": "Tuzla",
+      "latitude": 44.53898,
+      "longitude": 18.68112
+    }
+  ]
+}
