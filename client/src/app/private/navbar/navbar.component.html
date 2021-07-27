@@ -1,0 +1,24 @@
+<nav class="bg-gray-100 p-3">
+    <div class="max-w-6xl mx-auto">
+        <div class="flex justify-between">
+            <div class="flex space-x-4">
+                <div class="flex items-center space-x-2">
+                    <div href="#" (click)="goToDashboard()"
+                        class="py-2 cursor-pointer px-3 bg-blue-400 rounded hover:text-gray-900 hover:bg-green-300">
+                        Dashboard</div>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <div href="#" (click)="createNewLocation()"
+                        class="py-2 cursor-pointer px-3 bg-green-400 rounded hover:text-gray-900 hover:bg-green-300">
+                        Create
+                        New Location</div>
+                </div>
+            </div>
+            <div class="flex items-center space-x-1">
+                <div href="#" (click)="logout()"
+                    class="py-2 cursor-pointer px-3 bg-yellow-400 rounded hover:text-gray-900 hover:bg-yellow-300">
+                    Logout</div>
+            </div>
+        </div>
+    </div>
+</nav>

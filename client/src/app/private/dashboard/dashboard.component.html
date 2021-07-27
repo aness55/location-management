@@ -1,25 +1,45 @@
-<div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-    <div id="body" class="container mx-auto px-8 lg:px-0 transform hover:scale-105 duration-500 cursor-pointer"
-        *ngFor="let location of locations">
-        <div class="max-h-96 h-full mt-8 mx-4 max-w-sm rounded overflow-hidden shadow-lg">
-            <!-- <img class="w-full"
+<app-navbar></app-navbar>
+<div class="w-full h-screen grid grid-cols-6">
+    <div class="col">
+        <div class="px-4 mt-8 py-2 border-2 border-grey rounded relative">
+            <label class="absolute -my-5 bg-white px-2 text-grey-darker">Search Locations</label>
+            <input #searchInput (input)="onSearch(searchInput.value, selectedCity.value)" type="search"
+                class="appearance-none border-2 border-white rounded w-full py-2 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-white"
+                placeholder="Search">
+        </div>
+        <div class="px-4 mt-8 py-2 border-2 border-grey rounded relative">
+            <label class="absolute -my-5 bg-white px-2 text-grey-darker">Filter Cities</label>
+            <select (change)="filterLocationsByCity(selectedCity.value)" #selectedCity class="appearance-none border-2 border-white rounded w-full py-2 text-grey-darker 
+                leading-tight focus:outline-none focus:bg-white focus:border-white cursor-pointer" name="whatever"
+                id="frm-whatever">
+                <option value="">All</option>
+                <option *ngFor="let option of getUniqueLocations()" [value]="option"> {{option}} </option>
+            </select>
+        </div>
+    </div>
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 col-span-5">
+        <div id="body" class="container mx-auto px-8 lg:px-0 transform hover:scale-105 duration-500 cursor-pointer"
+            *ngFor="let location of filteredLocations">
+            <div class="max-h-96 h-full mt-8 mx-4 max-w-sm rounded overflow-hidden shadow-lg">
+                <!-- <img class="w-full"
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Grand_Anse-La_Digue-Seychellen.jpg/800px-Grand_Anse-La_Digue-Seychellen.jpg"
                 alt="{{location.name}}"> -->
-            <div class="w-full">
-                <app-map [longitude]="location.longitude" [latitude]="location.latitude"
-                [longitudePointer]="location.longitude" [latitudePointer]="location.latitude" 
-                    (addressChanged)="onAddressChange($event)">
-                </app-map>
-            </div>
-            <div class="px-6 py-2">
-                <div class="font-bold text-2xl mb-2">{{location.name}}</div>
-                <p class="text-grey-darker text-base leading-normal">
-                    {{location.address}}
-                </p>
-            </div>
-            <div class="px-6 py-2">
-                <span
-                    class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker cursor-pointer select-none mr-2">{{location.city}}</span>
+                <div class="w-full cursor-move">
+                    <app-map [longitude]="location.longitude" [latitude]="location.latitude"
+                        [longitudePointer]="location.longitude" [latitudePointer]="location.latitude"
+                        [clickable]="false">
+                    </app-map>
+                </div>
+                <div class="px-6 py-2" (click)="editLocation(location)">
+                    <div class="font-bold text-2xl mb-2">{{location.name}}</div>
+                    <p class="text-grey-darker text-base leading-normal">
+                        {{location.address}}
+                    </p>
+                </div>
+                <div class="px-6 py-2">
+                    <span
+                        class="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker cursor-pointer select-none mr-2">{{location.city}}</span>
+                </div>
             </div>
         </div>
     </div>

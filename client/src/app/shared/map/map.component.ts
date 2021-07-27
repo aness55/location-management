@@ -13,6 +13,9 @@ import { GeoLocationService } from '../../core/services/geo-location.service'
 })
 export class MapComponent implements OnInit, OnDestroy {
   @Input()
+  clickable = true;
+
+  @Input()
   geoReverseService = 'https://nominatim.openstreetmap.org/reverse?key=iTzWSiYpGxDvhATNtSrqx5gDcnMOkntL&format=json&addressdetails=1&lat={lat}&lon={lon}'
 
   @Input()
@@ -21,14 +24,14 @@ export class MapComponent implements OnInit, OnDestroy {
   height: string = '150px';
 
   @Input()
-  latitude = 52.520008
+  latitude = 43.8515575
   @Input()
-  longitude = 13.404954
+  longitude = 18.3826487
 
   @Input()
-  latitudePointer = 52.520008
+  latitudePointer = 43.8515575
   @Input()
-  longitudePointer = 13.404954
+  longitudePointer = 18.3826487
 
   @Input()
   showControlsZoom: boolean
@@ -81,10 +84,12 @@ export class MapComponent implements OnInit, OnDestroy {
     }
   }
   onSingleClick(event) {
-    const lonlat = proj.transform(event.coordinate, 'EPSG:3857', 'EPSG:4326')
-    this.longitudePointer = lonlat[0]
-    this.latitudePointer = lonlat[1]
-    this.reverseGeo()
+    if (this.clickable) {
+      const lonlat = proj.transform(event.coordinate, 'EPSG:3857', 'EPSG:4326')
+      this.longitudePointer = lonlat[0]
+      this.latitudePointer = lonlat[1]
+      this.reverseGeo()
+    }
   }
   increaseOpacity() {
     this.opacity += 0.1
@@ -105,59 +110,16 @@ export class MapComponent implements OnInit, OnDestroy {
       .replace(new RegExp('{lon}', 'ig'), `${this.longitudePointer}`)
       .replace(new RegExp('{lat}', 'ig'), `${this.latitudePointer}`)
     this.reverseGeoSub = this.httpClient.get(service).subscribe(data => {
-      const val = (data || {})
-
-      this.pointedAddressOrg = val['display_name']
-      const address = []
-
-      const building = []
-      if (val['address']['building']) {
-        building.push(val['address']['building'])
+      const address = data['address']
+      const name = address.city || address.county || address.village || address.municipality || address.region
+      const val = {
+        name: name,
+        city: address.city || '',
+        address: (address.road?address.road+', ':'')+(address.house_number?address.house_number+', ':'')+(address.postcode?address.postcode+', ':'')+(name?name+', ':'')+(address.country?address.country:''),
+        latitude: Number(data['lat']),
+        longitude: Number(data['lon']),
       }
-      if (val['address']['mall']) {
-        building.push(val['address']['mall'])
-      }
-      if (val['address']['theatre']) {
-        building.push(val['address']['theatre'])
-      }
-
-      const zip_city = []
-      if (val['address']['postcode']) {
-        zip_city.push(val['address']['postcode'])
-      }
-      if (val['address']['city']) {
-        zip_city.push(val['address']['city'])
-      }
-      const street_number = []
-      if (val['address']['street']) {
-        street_number.push(val['address']['street'])
-      }
-      if (val['address']['road']) {
-        street_number.push(val['address']['road'])
-      }
-      if (val['address']['footway']) {
-        street_number.push(val['address']['footway'])
-      }
-      if (val['address']['pedestrian']) {
-        street_number.push(val['address']['pedestrian'])
-      }
-      if (val['address']['house_number']) {
-        street_number.push(val['address']['house_number'])
-      }
-
-      if (building.length) {
-        address.push(building.join(' '))
-      }
-      if (zip_city.length) {
-        address.push(zip_city.join(' '))
-      }
-      if (street_number.length) {
-        address.push(street_number.join(' '))
-      }
-
-      this.pointedAddress = address.join(', ')
-
-      this.addressChanged.emit(this.pointedAddress)
+      this.addressChanged.emit(JSON.stringify(val))
     })
   }
 }

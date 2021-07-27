@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<div class="w-full h-screen flex">
+    <div class="w-1/6">
+        <form [formGroup]="locationForm" class="p-2">
+            <div class="px-4 mt-8 py-2 border-2 border-grey rounded relative">
+                <label class="absolute -my-5 bg-white px-2 text-grey-darker">Name</label>
+                <input type="text" formControlName="name"
+                    class="appearance-none border-2 border-white rounded w-full py-2 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-white"
+                    placeholder="Please enter location name">
+            </div>
+            <div class="px-4 mt-8 py-2 border-2 border-grey rounded relative">
+                <label class="absolute -my-5 bg-white px-2 text-grey-darker">City</label>
+                <input type="text" formControlName="city"
+                    class="appearance-none border-2 border-white rounded w-full py-2 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-white"
+                    placeholder="Please enter city">
+            </div>
+            <div class="px-4 mt-8 py-2 border-2 border-grey rounded relative">
+                <label class="absolute -my-5 bg-white px-2 text-grey-darker">Address</label>
+                <input type="text" formControlName="address"
+                    class="appearance-none border-2 border-white rounded w-full py-2 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-white"
+                    placeholder="Please enter location address">
+            </div>
+            <div class="px-4 mt-8 py-2 border-2 border-grey rounded relative">
+                <label class="absolute -my-5 bg-white px-2 text-grey-darker">Longitude</label>
+                <input type="number" formControlName="longitude"
+                    class="appearance-none border-2 border-white rounded w-full py-2 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-white"
+                    placeholder="Please enter longitude">
+            </div>
+            <div class="px-4 mt-8 py-2 border-2 border-grey rounded relative">
+                <label class="absolute -my-5 bg-white px-2 text-grey-darker">Latitude</label>
+                <input type="number" formControlName="latitude"
+                    class="appearance-none border-2 border-white rounded w-full py-2 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-white"
+                    placeholder="Please enter latitude">
+            </div>
+            <div class="flex w-full justify-center">
+                <button class="bg-yellow-600 font-bold hover:bg-indigo-400 w-full mt-7 text-white py-4 rounded
+                focus:outline-none shadow disabled:opacity-30" type="button"
+                    [disabled]="locationForm.invalid || loading" (click)="updateLocation()">SAVE</button>
+            </div>
+        </form>
+    </div>
+    <div class="w-9/12">
+        <div class="w-full cursor-move m-4 border-green-800 border-2">
+            <app-map [latitude]="locationForm.get('latitude').value" [longitude]="locationForm.get('longitude').value"
+                [latitudePointer]="locationForm.get('latitude').value"
+                [longitudePointer]="locationForm.get('longitude').value" [clickable]="true" [zoom]="6"
+                (addressChanged)="onAddressChange($event)">
+            </app-map>
+        </div>
+    </div>
+</div>
