@@ -1,0 +1,89 @@
+{
+  "users": [
+    {
+      "email": "prentic@gmail.com",
+      "password": "$2a$10$g3LOqMNYpSpe1jOEc6zbXuXDaXwjIOoS6pRHfxFd1GU2YC5CgTFB2",
+      "id": 1
+    },
+    {
+      "email": "prentica@gmail.com",
+      "password": "$2a$10$FJZsuUNnfM1USEvKZpwkme/d2fFiximAd3Q8cqLd1Hk7GdaRfjxWG",
+      "id": 2
+    },
+    {
+      "email": "prenticas@gmail.com",
+      "password": "$2a$10$zWv2vjStFya/tL0hYpFsRuDVuodLrnFtT7stD81JJ1yKkV/uaypEe",
+      "id": 3
+    },
+    {
+      "email": "anb@mydona.com",
+      "password": "$2a$10$4eSdRKKNOI/rNgWDfjdqSu6eV/9/cXxwDwumgupHAqMr8DjGwXgM6",
+      "id": 4
+    },
+    {
+      "email": "prentic.anes+55@gmail.com",
+      "password": "$2a$10$MMFvbKIoufjsAyLm6qqkleyz2Ie6aiNbk8MqlaheDEes4YAGp5Ery",
+      "id": 5
+    },
+    {
+      "email": "prentic.anes+22@gmail.com",
+      "password": "$2a$10$8ymrbM4u91Iie900RF5TcuTMZjHirr35IafEKd54yRUxZnCHUXBmi",
+      "id": 6
+    },
+    {
+      "email": "prentic.anes@gmail.com",
+      "password": "$2a$10$Q.FYO4SRAE0WmDi8dHL5gOnWWY6b4gbiYbb.A.31SOoyGRwpO3C6y",
+      "id": 7
+    }
+  ],
+  "locations": [
+    {
+      "id": 6,
+      "name": "Park",
+      "address": "Shetalishte Slana Banja b.b., Tuzla",
+      "city": "Tuzla",
+      "latitude": 44.53898,
+      "longitude": 18.68112
+    },
+    {
+      "id": 7,
+      "name": "Kapija",
+      "address": "Shetalishte Slana Banja b.b., Tuzla",
+      "city": "Tuzla",
+      "latitude": 44.53898,
+      "longitude": 18.68112
+    },
+    {
+      "name": "City of Sarajevo",
+      "city": "City of Sarajevo",
+      "address": "Bulevar Meše Selimovića, 71160, City of Sarajevo, Bosnia and Herzegovina",
+      "longitude": 18.3529146,
+      "latitude": 43.8472805,
+      "id": 14
+    },
+    {
+      "name": "Mestre",
+      "city": "Mestre",
+      "address": "Ponte della Libertà, 30170, Mestre, Italy",
+      "longitude": 12.295309770399204,
+      "latitude": 45.45575205,
+      "id": 16
+    },
+    {
+      "name": "Munich",
+      "city": "Munich",
+      "address": "Ludlstraße, 65, 80689, Munich, Germany",
+      "longitude": 11.4917359,
+      "latitude": 48.1249475,
+      "id": 18
+    },
+    {
+      "name": "Munich koji",
+      "city": "Munich",
+      "address": "Griechenplatz, 15, 81545, Munich, Germany",
+      "longitude": 11.565141155514638,
+      "latitude": 48.092314,
+      "id": 19
+    }
+  ]
+}

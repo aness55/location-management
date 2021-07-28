@@ -10,7 +10,6 @@ import { LocationsService } from 'src/app/core/services/locations.service';
   styleUrls: ['./edit-location.component.scss'],
 })
 export class EditLocationComponent implements OnInit {
-
   locationId;
   sub;
   location;
@@ -24,39 +23,41 @@ export class EditLocationComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private locationService: LocationsService
-    ) {}
+  ) {}
 
   ngOnInit(): void {
+    this.loading = true;
     this.sub = this.route.params.subscribe((params) => {
       this.locationId = +params['id'];
       if (this.locationId) {
-        this.locationsService.getLocation(this.locationId)
-        .subscribe(
+        this.locationsService.getLocation(this.locationId).subscribe(
           (response) => {
-            if (response && response.length>0) {
-              this.location = response[0];
-              this.generateForm();
+            if (response) {
+              this.location = response;
+              if (this.location) {
+                this.generateForm();
+              }
             } else {
               this.toaster.error('Not able to load the location', 'Error');
               setTimeout(() => {
-                this.router.navigate(['dashboard'])
+                this.router.navigate(['dashboard']);
               }, 1000);
             }
           },
           (error) => {
-            console.log(error)
             this.toaster.error('Not able to load the location', 'Error');
             setTimeout(() => {
-              this.router.navigate(['dashboard'])
+              this.router.navigate(['dashboard']);
             }, 1000);
           }
-        )
+        );
       }
     });
   }
 
   generateForm() {
     this.locationForm = this.fb.group(this.location);
+    this.loading = false;
   }
 
   onAddressChange(event) {
@@ -83,5 +84,26 @@ export class EditLocationComponent implements OnInit {
         }
       );
     }
+  }
+
+  deleteLocation() {
+    this.loading = true;
+    if (confirm('Are you sure you want to delete location?')) {
+      this.locationService.deleteLocation(this.locationId).subscribe(
+        (response) => {
+          if (response) {
+            this.toaster.success('Successfuly deleted location', 'Success');
+            setTimeout(() => {
+              this.router.navigate(['dashboard']);
+              this.loading = false;
+            }, 1500);
+          }
+        },
+        (error) => {
+          this.toaster.error('Not able to delete location', 'Error');
+          this.loading = false;
+        }
+      );
+    } else this.loading = false;
   }
 }

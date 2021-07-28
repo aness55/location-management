@@ -14,7 +14,6 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {}
 
   createNewLocation() {
-    console.log('NAVIGATE TO CREATE NEW LOCATION FORM');
     this.router.navigate(['/dashboard/new'])
   }
 

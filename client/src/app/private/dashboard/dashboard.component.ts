@@ -20,7 +20,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.locationsService.getLocations().subscribe((response) => {
-      console.log('RERERESESE LOCATIONS', response);
       this.allLocations = response;
       this.filteredLocations = response;
     },
@@ -44,7 +43,6 @@ export class DashboardComponent implements OnInit {
   }
 
   filterLocationsByCity(city: string) {
-    console.log('FILTER WORKS', city);
     if (city) {
       this.filteredLocations = this.allLocations.filter(
         (location) => location.city == city
@@ -64,8 +62,6 @@ export class DashboardComponent implements OnInit {
   }
 
   editLocation(location) {
-    console.log('NAVIGATION', location)
     this.router.navigate(['dashboard', 'edit', location.id])
-    //this.router.navigate([`/edit/${location.id}`])
   }
 }

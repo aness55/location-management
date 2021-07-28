@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "nodemon server.js"
+  },
+  "author": "Anes Prentic",
+  "license": "MIT",
+  "devDependencies": {
+    "json-server": "^0.16.3",
+    "json-server-auth": "^2.1.0"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.12"
+  }
+}

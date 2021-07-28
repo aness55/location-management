@@ -21,15 +21,11 @@ export class LocationsService {
   }
 
   getLocation(locId): Observable<any> {
-    return this.http
-      .get<any>(`${this.env.apiUrl}locations`, {
-        params: { id: locId },
+    return this.http.get<any>(`${this.env.apiUrl}locations/${locId}`).pipe(
+      map((response: any) => {
+        return response;
       })
-      .pipe(
-        map((response: any) => {
-          return response;
-        })
-      );
+    );
   }
 
   createLocation(body): Observable<any> {
@@ -41,7 +37,17 @@ export class LocationsService {
   }
 
   updateLocation(body): Observable<any> {
-    return this.http.put<any>(`${this.env.apiUrl}locations/${body.id}`, body).pipe(
+    return this.http
+      .put<any>(`${this.env.apiUrl}locations/${body.id}`, body)
+      .pipe(
+        map((response: any) => {
+          return response;
+        })
+      );
+  }
+
+  deleteLocation(id): Observable<any> {
+    return this.http.delete<any>(`${this.env.apiUrl}locations/${id}`).pipe(
       map((response: any) => {
         return response;
       })

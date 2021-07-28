@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="w-full h-screen flex">
+<div class="w-full h-screen flex" *ngIf="!loading">
     <div class="w-1/6">
         <form [formGroup]="locationForm" class="p-2">
             <div class="px-4 mt-8 py-2 border-2 border-grey rounded relative">
@@ -33,9 +33,14 @@
                     placeholder="Please enter latitude">
             </div>
             <div class="flex w-full justify-center">
-                <button class="bg-yellow-600 font-bold hover:bg-indigo-400 w-full mt-7 text-white py-4 rounded
+                <button class="bg-green-600 font-bold hover:bg-indigo-400 w-full mt-7 text-white py-4 rounded
                 focus:outline-none shadow disabled:opacity-30" type="button"
                     [disabled]="locationForm.invalid || loading" (click)="updateLocation()">SAVE</button>
+            </div>
+            <div class="flex w-full justify-center">
+                <button class="bg-red-600 font-bold hover:bg-indigo-400 w-full mt-7 text-white py-4 rounded
+                    focus:outline-none shadow disabled:opacity-30" type="button" [disabled]="loading"
+                    (click)="deleteLocation()">DELETE</button>
             </div>
         </form>
     </div>
