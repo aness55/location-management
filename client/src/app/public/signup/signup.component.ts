@@ -23,6 +23,7 @@ export class SignupComponent implements OnInit {
     this.signupForm = this.fb.group({
       email: [null, Validators.required],
       password: [null, Validators.required],
+      admin: [false]
     });
   }
 
@@ -31,12 +32,13 @@ export class SignupComponent implements OnInit {
       (response: any) => {
         if (response) {
           localStorage.setItem('access_token', response.accessToken);
+          localStorage.setItem('admin', response.user.admin);
           this.toaster.success('Registration successful', 'Success');
           this.router.navigate(['dashboard']);
         }
       },
       (error) => {
-        this.toaster.error(error.statusText, 'Error');
+        this.toaster.error(error, 'Error');
       }
     );
   }

@@ -1,40 +1,5 @@
 {
   "users": [
-    {
-      "email": "prentic@gmail.com",
-      "password": "$2a$10$g3LOqMNYpSpe1jOEc6zbXuXDaXwjIOoS6pRHfxFd1GU2YC5CgTFB2",
-      "id": 1
-    },
-    {
-      "email": "prentica@gmail.com",
-      "password": "$2a$10$FJZsuUNnfM1USEvKZpwkme/d2fFiximAd3Q8cqLd1Hk7GdaRfjxWG",
-      "id": 2
-    },
-    {
-      "email": "prenticas@gmail.com",
-      "password": "$2a$10$zWv2vjStFya/tL0hYpFsRuDVuodLrnFtT7stD81JJ1yKkV/uaypEe",
-      "id": 3
-    },
-    {
-      "email": "anb@mydona.com",
-      "password": "$2a$10$4eSdRKKNOI/rNgWDfjdqSu6eV/9/cXxwDwumgupHAqMr8DjGwXgM6",
-      "id": 4
-    },
-    {
-      "email": "prentic.anes+55@gmail.com",
-      "password": "$2a$10$MMFvbKIoufjsAyLm6qqkleyz2Ie6aiNbk8MqlaheDEes4YAGp5Ery",
-      "id": 5
-    },
-    {
-      "email": "prentic.anes+22@gmail.com",
-      "password": "$2a$10$8ymrbM4u91Iie900RF5TcuTMZjHirr35IafEKd54yRUxZnCHUXBmi",
-      "id": 6
-    },
-    {
-      "email": "prentic.anes@gmail.com",
-      "password": "$2a$10$Q.FYO4SRAE0WmDi8dHL5gOnWWY6b4gbiYbb.A.31SOoyGRwpO3C6y",
-      "id": 7
-    }
   ],
   "locations": [
     {

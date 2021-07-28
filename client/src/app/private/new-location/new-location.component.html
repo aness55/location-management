@@ -35,7 +35,7 @@
             <div class="flex w-full justify-center">
                 <button class="bg-yellow-600 font-bold hover:bg-indigo-400 w-full mt-7 text-white py-4 rounded
                 focus:outline-none shadow disabled:opacity-30" type="button"
-                    [disabled]="newLocationForm.invalid || loading" (click)="createLocation()">CREATE</button>
+                    [disabled]="newLocationForm.invalid || loading || !admin" (click)="createLocation()">CREATE</button>
             </div>
         </form>
     </div>

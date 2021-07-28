@@ -12,6 +12,7 @@ import { LocationsService } from 'src/app/core/services/locations.service';
 export class NewLocationComponent implements OnInit {
   newLocationForm: FormGroup;
   loading: boolean = false;
+  admin = JSON.parse(localStorage.getItem('admin'));
 
   constructor(
     private fb: FormBuilder,
@@ -36,7 +37,7 @@ export class NewLocationComponent implements OnInit {
   }
 
   createLocation() {
-    if (this.newLocationForm.valid) {
+    if (this.newLocationForm.valid && this.admin) {
       this.loading = true;
       this.locationService.createLocation(this.newLocationForm.value).subscribe(
         (response) => {

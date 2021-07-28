@@ -35,11 +35,11 @@
             <div class="flex w-full justify-center">
                 <button class="bg-green-600 font-bold hover:bg-indigo-400 w-full mt-7 text-white py-4 rounded
                 focus:outline-none shadow disabled:opacity-30" type="button"
-                    [disabled]="locationForm.invalid || loading" (click)="updateLocation()">SAVE</button>
+                    [disabled]="locationForm.invalid || loading || !admin" (click)="updateLocation()">SAVE</button>
             </div>
             <div class="flex w-full justify-center">
                 <button class="bg-red-600 font-bold hover:bg-indigo-400 w-full mt-7 text-white py-4 rounded
-                    focus:outline-none shadow disabled:opacity-30" type="button" [disabled]="loading"
+                    focus:outline-none shadow disabled:opacity-30" type="button" [disabled]="loading || !admin"
                     (click)="deleteLocation()">DELETE</button>
             </div>
         </form>

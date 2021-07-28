@@ -15,6 +15,7 @@ export class EditLocationComponent implements OnInit {
   location;
   locationForm;
   loading: boolean;
+  admin = JSON.parse(localStorage.getItem('admin'));
 
   constructor(
     private route: ActivatedRoute,
@@ -66,7 +67,7 @@ export class EditLocationComponent implements OnInit {
   }
 
   updateLocation() {
-    if (this.locationForm.valid) {
+    if (this.locationForm.valid && this.admin) {
       this.loading = true;
       this.locationService.updateLocation(this.locationForm.value).subscribe(
         (response) => {
@@ -88,7 +89,7 @@ export class EditLocationComponent implements OnInit {
 
   deleteLocation() {
     this.loading = true;
-    if (confirm('Are you sure you want to delete location?')) {
+    if (confirm('Are you sure you want to delete location?') && this.admin) {
       this.locationService.deleteLocation(this.locationId).subscribe(
         (response) => {
           if (response) {

@@ -31,12 +31,13 @@ export class LoginComponent implements OnInit {
       (response: any) => {
         if (response) {
           localStorage.setItem('access_token', response.accessToken);
+          localStorage.setItem('admin', response.user.admin);
           this.toaster.success('Login successful', 'Success');
           this.router.navigate(['dashboard']);
         }
       },
       (error) => {
-        this.toaster.error(error.statusText, 'Error');
+        this.toaster.error(error, 'Error');
       }
     );
   }
