@@ -5,6 +5,13 @@
       "password": "$2a$10$v7t0u5e9kWJM47HDnjDgU.hf/Li7YfTN91uasK.KBxUmZzZE6GnjW",
       "admin": false,
       "id": 1
+    },
+    {
+      "email": "aaban.jeanluc@ln0hio.com",
+      "password": "$2a$10$PEW9cSsLFQXGVfUFY.pJAuHXuaCm7gbrSsFf8xoWODz5CVR.SidTG",
+      "businessName": "Tesa",
+      "country": "BuH",
+      "id": 2
     }
   ],
   "locations": [

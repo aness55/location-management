@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { GenerateTokenOfferingComponent } from './generate-token-offering/generate-token-offering.component';
 import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
@@ -18,6 +19,11 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent,
+    //canActivate: [PublicGuard],
+  },
+  {
+    path: 'generate-offering',
+    component: GenerateTokenOfferingComponent,
     //canActivate: [PublicGuard],
   },
 ];

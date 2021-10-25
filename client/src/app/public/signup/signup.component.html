@@ -1,22 +1,34 @@
 <form [formGroup]="signupForm">
     <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
         <div class="relative px-6 py-3 mx-auto w-full md:w-1/3 text-center h-2/3">
-            <span class="text-2xl text-light">Register new account</span>
+            <div class="text-2xl text-light">Complete your registration</div>
+            <div class="text-  l text-light">Please provide more info to complete the onboarding process. </div>
             <div class="mt-4 bg-white shadow-md rounded-lg text-left">
                 <div class="h-2 bg-indigo-400 rounded-t-md"></div>
                 <div class="border px-8 py-6">
-                    <label class="label block font-semibold" for="email">Email</label>
+                    <label class="label block font-semibold" for="email">Email*</label>
                     <input id="email"
                         class="w-full h-5 my-6 px-3 py-6 border rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-400"
                         type="email" formControlName="email" placeholder="Email">
-                    <label class="label mt-3 block font-semibold" for="password">Password</label>
+                    <label class="label block font-semibold" for="password">Password*</label>
                     <input id="password"
                         class="w-full h-5 my-6 px-3 py-6 border rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-400"
-                        type="password" formControlName="password" placeholder="Password">
-                    <div class="flex items-center mt-4">
-                        <button (click)="signup()" class="bg-yellow-600 font-bold hover:bg-indigo-400  w-1/3 text-white my-4 px-3 py-4 rounded text-lg focus:outline-none shadow">SIGNUP</button>
-                        <a class="mx-3 text-sm hover:underline cursor-pointer" routerLink="/login"
-                            routerLinkActive="router-link-active">Already have an account?</a>
+                        type="password" formControlName="password" placeholder="password">
+                    <label class="label block font-semibold" for="businessName">Business / project name*</label>
+                    <input id="businessName"
+                        class="w-full h-5 my-6 px-3 py-6 border rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-400"
+                        type="businessName" formControlName="businessName" placeholder="businessName">
+                        <label class="label block font-semibold" for="country">Country</label>
+                    <input id="country"
+                        class="w-full h-5 my-6 px-3 py-6 border rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-400"
+                        type="country" formControlName="country" placeholder="country">
+                    <div class="flex justify-items-end mt-4">
+                        <a class="mx-3 text-sm hover:underline cursor-pointer" routerLink="/"
+                        routerLinkActive="router-link-active">Accept terms & conditions</a>
+                    </div>
+                    <div class="flex justify-around mt-4">
+                        <button (click)="goBack()" class="bg-gray-600 font-bold hover:bg-indigo-400  w-1/3 text-white my-4 px-3 py-4 rounded text-lg focus:outline-none shadow">BACK</button>
+                        <button (click)="signup()" [disabled]="signupForm.invalid" [ngClass]="{'bg-gray-500': signupForm.invalid, 'cursor-not-allowed': signupForm.invalid, 'bg-yellow-500': signupForm.valid}" class="font-bold hover:bg-indigo-400  w-1/3 text-white my-4 px-3 py-4 rounded text-lg focus:outline-none shadow">NEXT</button>
                     </div>
                 </div>
             </div>

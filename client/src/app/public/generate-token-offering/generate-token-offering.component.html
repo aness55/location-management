@@ -1,0 +1,115 @@
+<div class="container mx-auto">
+  <div class="text-2xl mt-8">Prepare an initial token offering</div>
+  <p>
+    You are about to launch an ICO or IDO. We help you find the best possible
+    setup. Please enter the necessary information in the upper part. The summary
+    shows you the resulting effects at any time.
+  </p>
+
+  <form [formGroup]="generateOfferingForm">
+    <div class="px-4 mt-8 py-2 border-2 border-grey rounded relative w-1/4">
+        <label class="absolute -my-5 bg-white px-2 text-grey-darker">Project name</label>
+        <input type="text" formControlName="projectName"
+            class="appearance-none border-2 border-white rounded w-full py-2 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-white"
+            placeholder="Please enter Project name">
+    </div>
+    <div class="flex">
+        <div class="px-4 mt-8 py-2 border-2 border-grey rounded relative w-1/4">
+            <label class="absolute -my-5 bg-white px-2 text-grey-darker">Total fund raise</label>
+            <input type="text" formControlName="fundRaise"
+                class="appearance-none border-2 border-white rounded w-full py-2 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-white"
+                placeholder="Please enter fund raise">
+        </div>
+        <div class="mx-4 px-4 mt-8 py-2 border-2 border-grey rounded relative w-1/8">
+            <label class="absolute -my-5 bg-white px-2 text-grey-darker">Currency</label>
+            <input type="text" formControlName="currency"
+                class="appearance-none border-2 border-white rounded w-full py-2 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-white"
+                placeholder="Please enter currency">
+        </div>
+    </div>
+    <div class="flex">
+        <div class="px-4 mt-8 py-2 border-2 border-grey rounded relative w-1/4">
+            <label class="absolute -my-5 bg-white px-2 text-grey-darker">Total token supply</label>
+            <input type="text" formControlName="tokenSupply"
+                class="appearance-none border-2 border-white rounded w-full py-2 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-white"
+                placeholder="Please enter token supply">
+        </div>
+        <div class="mx-4 px-4 mt-8 py-2 border-2 border-grey rounded relative w-1/8">
+            <label class="absolute -my-5 bg-white px-2 text-grey-darker">Token symbol</label>
+            <input type="text" formControlName="tokenSymbol"
+                class="appearance-none border-2 border-white rounded w-full py-2 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-white"
+                placeholder="Please enter Token symbol">
+        </div>
+    </div>
+    <div class="flex mt-20">
+        <div class="w-2/3">Stage</div>
+        <div class="w-1/5">Stage</div>
+        <div class="w-1/5">Stage</div>
+        <div class="w-1/5">Stage</div>
+    </div>
+    <ng-container *ngFor="let stage of stages">
+        <div class="flex mt-3">
+            <div class="w-2/3">
+                <div class="px-4 mt-8 py-2 border-2 border-grey rounded relative w-1/3">    
+                    <div 
+                        class="appearance-none border-2 border-white rounded w-full py-2 text-grey-darker leading-tight 
+                        focus:outline-none focus:bg-white focus:border-white" >
+                        {{ stage.name }}
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/5 mr-2">
+                <div class="px-4 mt-4 py-2 border-2 border-grey rounded relative w-full">
+                    <input type="text" [value]="stage.tokenAllocationPerc"
+                        class="appearance-none border-2 border-white rounded w-full py-2 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-white" >
+                </div>
+            </div>
+            <div class="w-1/5 mr-2">
+                <div class="px-4 mt-4 py-2 border-2 border-grey rounded relative w-full">
+                    <input type="text" [value]="stage.tokenAllocation"
+                        class="appearance-none border-2 border-white rounded w-full py-2 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-white" >
+                </div>
+            </div>
+            <div class="w-1/5 mr-2">
+                <div class="px-4 mt-4 py-2 border-2 border-grey rounded relative w-full">
+                    <input type="text" [value]="stage.discount"
+                        class="appearance-none border-2 border-white rounded w-full py-2 text-grey-darker leading-tight focus:outline-none focus:bg-white focus:border-white" >
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <div class="flex justify-center">
+        <div class="px-4 pr-72 mt-4 py-2 border-2 border-grey rounded relative w-2/3 bg-green-100">
+            <div class="flex justify-between">
+            <span class="text-lg">Total token supply</span> <span class="text-lg">100.000.000</span>
+            </div>
+            <div class="flex justify-between">
+            <span class="text-lg">Initial circulating token supply</span> <span class="text-lg">100.000.000</span>
+            </div>
+            <div class="flex justify-between">
+            <span class="text-lg">Token price</span> <span class="text-lg">100.000.000</span>
+            </div>
+            <ng-container *ngFor="let stg of stages">
+            <div class="flex justify-between">
+                <span class="text-lg"> {{ stg.name }} </span> <span class="text-lg"> {{ stg.price }} </span> 
+            </div>
+            </ng-container>
+            <div class="flex justify-between">
+            <span class="text-lg">Initial market cap</span> <span class="text-lg">9.000.000</span>
+            </div>
+        </div>
+    </div>
+    <div class="flex justify-evenly">
+        <div class="flex w-1/6 justify-center">
+            <button class="bg-gray-600 font-bold hover:bg-indigo-400 w-full mt-7 text-white py-4 rounded
+                focus:outline-none shadow disabled:opacity-30" type="button"
+                (click)="back()">BACK</button>
+        </div>
+        <div class="flex w-1/6 justify-center">
+            <button class="bg-yellow-600 font-bold hover:bg-indigo-400 w-full mt-7 text-white py-4 rounded
+            focus:outline-none shadow disabled:opacity-30" type="button"
+                [disabled]="generateOfferingForm.invalid" (click)="updateLocation()">GENERATE OFFERING</button>
+        </div>
+    </div>
+  </form>
+</div>

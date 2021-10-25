@@ -1,7 +1,7 @@
 <form [formGroup]="loginForm">
     <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
         <div class="relative px-6 py-3 mx-auto w-full md:w-1/3 text-center h-2/3">
-            <span class="text-2xl text-light">Login to your account</span>
+            <span class="text-2xl text-light">Welcome back. Please log in using your email and password.</span>
             <div class="mt-4 bg-white shadow-md rounded-lg text-left">
                 <div class="h-2 bg-indigo-400 rounded-t-md"></div>
                 <div class="border px-8 py-6">
@@ -16,8 +16,8 @@
                     <div class="flex items-center mt-4">
                         <button (click)="login()"
                             class="bg-yellow-600 font-bold hover:bg-indigo-400  w-1/3 text-white my-4 px-3 py-4 rounded text-lg focus:outline-none shadow">LOGIN</button>
-                        <a class="mx-3 text-sm hover:underline cursor-pointer" routerLink="/signup"
-                            routerLinkActive="router-link-active">Or create a new account?</a>
+                        <a class="mx-3 text-sm hover:underline cursor-pointer" routerLink="/"
+                            routerLinkActive="router-link-active">Forgot password</a>
                     </div>
                 </div>
             </div>

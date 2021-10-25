@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class LandingComponent implements OnInit {
 
+  email = '';
+
   constructor(
     private router: Router
   ) { }
